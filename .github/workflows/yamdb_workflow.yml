@@ -42,7 +42,7 @@ jobs:
         uses: docker/login-action@v1 # Запуск скрипта авторизации на DockerHub
         with:
           username: aivanstiv070593 
-          password: BlejNeyWarjEft8
+          password: ${{ secrets.PASSWORD }}
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2 # Выполняет push образа в DockerHub 
         with:
