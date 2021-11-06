@@ -7,6 +7,8 @@ class IsAdminPermission(permissions.BasePermission):
     def has_permission(self, request, view):
         if request.user.is_authenticated:
             return request.user.is_admin()
+        else:
+            return None
 
 
 class ReadOnly(permissions.BasePermission):
@@ -28,3 +30,5 @@ class IsOwner(permissions.BasePermission):
                 or request.user.is_admin()
                 or request.user.is_moderator()
             )
+        else:
+            return None

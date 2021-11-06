@@ -144,10 +144,9 @@ class TitleSerializerList(serializers.ModelSerializer):
 
     def get_rating(self, obj):
         try:
-            current_rating = int(
+            return int(
                 obj.title.aggregate(rating=Avg("score"))["rating"]
             )
-            return current_rating
         except TypeError:
             return None
 
@@ -210,13 +209,10 @@ class TitleSerializer(serializers.ModelSerializer):
         if "category" in self.initial_data:
             category_slug = self.initial_data.get("category")
             category = get_object_or_404(Category, slug=category_slug)
-            title = Title.objects.update_or_create(
+            return Title.objects.update_or_create(
                 **validated_data, category=category  # noqa
             )
-            return title
-
-        title = Title.objects.create(**validated_data)  # noqa
-        return title
+        return Title.objects.create(**validated_data)  # noqa
 
     def update(self, instance, validated_data):
         """Update method modified to introduce a possibility to
@@ -239,10 +235,9 @@ class TitleSerializer(serializers.ModelSerializer):
 
     def get_rating(self, obj):
         try:
-            current_rating = int(
+            return int(
                 obj.title.aggregate(rating=Avg("score"))["rating"]
             )
-            return current_rating
         except TypeError:
             return None
 
