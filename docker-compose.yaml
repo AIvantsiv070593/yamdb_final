@@ -17,8 +17,8 @@ services:
 #     image: yamdb:latest
     restart: always
     volumes:
-      - static_value:/code/static/
-      - media_value:/code/media/
+      - static_value:/yamdb_final/static/
+      - media_value:/yamdb_final/media/
 
     depends_on:
       - db
