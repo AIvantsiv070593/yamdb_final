@@ -73,4 +73,3 @@ jobs:
             echo DB_HOST=db >> .env
             echo DB_PORT=5432 >> .env
             sudo docker-compose up -d
-            # test
