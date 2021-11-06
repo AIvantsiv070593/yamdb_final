@@ -1,6 +1,6 @@
 FROM python:3.8.5
 LABEL author='AndreyI' version=1 broken_keyboards=100500
-WORKDIR /yamdb/yamdb_final
+WORKDIR /yamdb_final
 COPY requirements.txt /yamdb_final
 RUN pip3 install -r /yamdb_final/requirements.txt
 COPY . /yamdb_final
