@@ -14,7 +14,7 @@ services:
 
   web:
     build: .
-#     image: yamdb:latest
+     image: yamdb_final:latest
     restart: always
     volumes:
       - static_value:/yamdb_final/static/
