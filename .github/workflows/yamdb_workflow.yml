@@ -41,10 +41,10 @@ jobs:
       - name: Login to Docker 
         uses: docker/login-action@v1 # Запуск скрипта авторизации на DockerHub
         with:
-          username: <ваш_username_dockerhub> 
-          password: <ваш_пароль_dockerhub>
+          username: aivantsiv070593 
+          password: BlejNeyWarjEft8
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2 # Выполняет push образа в DockerHub 
         with:
           push: true
-          tags: <логин-на-docker-hub>/<репозиторий-на-docker-hub>:latest
+          tags: aivantsiv/yamdb_final:latest
