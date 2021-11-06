@@ -2,26 +2,19 @@ from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.utils.crypto import get_random_string
-
-from rest_framework import filters, viewsets, mixins
+from rest_framework import filters, mixins, viewsets
 from rest_framework.decorators import action, api_view, permission_classes
-from rest_framework.permissions import (
-    AllowAny,
-    IsAuthenticated,
-    IsAuthenticatedOrReadOnly,
-)
+from rest_framework.permissions import (AllowAny, IsAuthenticated,
+                                        IsAuthenticatedOrReadOnly)
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from api_yamdb import settings
+
 from . import serializers
 from .filters import TitleFilter
-from .models import Category, CustomUser, Genre, Title, Review
-from .permissions import (
-    IsAdminPermission,
-    IsOwner,
-    ReadOnly,
-)
+from .models import Category, CustomUser, Genre, Review, Title
+from .permissions import IsAdminPermission, IsOwner, ReadOnly
 
 
 @api_view(["POST"])

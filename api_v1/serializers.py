@@ -1,26 +1,17 @@
-from datetime import datetime, MINYEAR
+from datetime import MINYEAR, datetime
 
-from django.core.exceptions import ValidationError
 from django.contrib.auth.models import update_last_login
-from django.shortcuts import get_object_or_404
+from django.core.exceptions import ValidationError
 from django.db.models import Avg
+from django.shortcuts import get_object_or_404
 from rest_framework import serializers
-from rest_framework_simplejwt.serializers import (
-    TokenObtainSerializer,
-    api_settings,
-)
-from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.validators import UniqueValidator
+from rest_framework_simplejwt.serializers import (TokenObtainSerializer,
+                                                  api_settings)
+from rest_framework_simplejwt.tokens import RefreshToken
 
-from .models import (
-    CustomUser,
-    Title,
-    Category,
-    Genre,
-    Title2Genre,
-    Comment,
-    Review,
-)
+from .models import (Category, Comment, CustomUser, Genre, Review, Title,
+                     Title2Genre)
 
 
 class CustomUserSerializer(serializers.ModelSerializer):

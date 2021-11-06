@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import Category, CustomUser, Genre, Title, Review, Comment
-
+from .models import Category, Comment, CustomUser, Genre, Review, Title
 
 IF_NONE = "-пусто-"
 

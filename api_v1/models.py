@@ -1,9 +1,8 @@
-from datetime import datetime, MINYEAR
+from datetime import MINYEAR, datetime
 
-from django.db import models
+from django.contrib.auth.models import AbstractUser, UserManager
 from django.core import validators
-from django.contrib.auth.models import AbstractUser
-from django.contrib.auth.models import UserManager
+from django.db import models
 
 
 class CustomUserManager(UserManager):
