@@ -56,8 +56,8 @@ jobs:
       - name: executing remote ssh commands to deploy
         uses: appleboy/ssh-action@master
         with:
-          host: 51.250.23.14
-          username: aivantsiv
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_KEY }}
           passphrase: password
           script: |
@@ -67,14 +67,15 @@ jobs:
             # Создаст файл для переменных окружения
             touch .env 
             # Наполнит файл переменными окружения из секретов GitHub
-            echo DB_ENGINE=django.db.backends.postgresql >> .env
-            echo DB_NAME=postgres >> .env
-            echo POSTGRES_USER=postgres >> .env
+            echo SECRET_KEY=${{ secrets. SECRET_KEY }} >> .env
+            echo DB_ENGINE=${{ secrets.DB_ENGINE }}  >> .env
+            echo DB_NAME=${{ secrets.DB_NAME }}  >> .env
+            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }}  >> .env
             echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
-            echo DB_HOST=db >> .env
-            echo DB_PORT=5432 >> .env
+            echo DB_HOST=${{ secrets.DB_HOST }}  >> .env
+            echo DB_PORT=${{ secrets.DB_PORT }}  >> .env
+            echo ALLOWED_HOST=${{ secrets.ALLOWED_HOST  }} >> .env
             sudo docker-compose up -d
-            #test
             
   send_message:
       runs-on: ubuntu-latest
