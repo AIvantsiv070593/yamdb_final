@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v2 # Выполняет push образа в DockerHub 
         with:
           push: true
-          tags: aivanstiv070593/yamdb_final:latest
+          tags: aivanstiv070593/yamdb_final:v1
   
   deploy:
     runs-on: ubuntu-latest
@@ -60,7 +60,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: password
           script: |
-            sudo docker pull aivanstiv070593/yamdb_final
+            sudo docker pull aivanstiv070593/yamdb_final:v1
             sudo docker-compose stop
             sudo docker-compose rm web
             # Создаст файл для переменных окружения
