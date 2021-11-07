@@ -13,8 +13,7 @@ services:
       - ./.env
 
   web:
-    # build: .
-    image: yamdb_final:latest
+    image: yamdb_final
     restart: always
     volumes:
       - static_value:/yamdb_final/static/
