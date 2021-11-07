@@ -13,11 +13,11 @@ services:
       - ./.env
 
   web:
-    image: yamdb_final
+    image: aivanstiv070593/yamdb_final:v1
     restart: always
     volumes:
-      - static_value:/yamdb_final/static/
-      - media_value:/yamdb_final/media/
+      - static_value:/static/
+      - media_value:/media/
 
     depends_on:
       - db
