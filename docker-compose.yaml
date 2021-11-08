@@ -16,8 +16,8 @@ services:
     image: aivanstiv070593/yamdb_final:v1
     restart: always
     volumes:
-      - static_value:/static/
-      - media_value:/media/
+      - static_value: yamdb_final/static/
+      - media_value: yamdb_final/media/
 
     depends_on:
       - db
