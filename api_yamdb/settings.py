@@ -11,7 +11,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='p&l%385148kslhtyn^##a1)ilz@4z
 
 DEBUG = False
 
-ALLOWED_HOSTS = (os.environ.get('ALLOWED_HOST', default='*')).split()
+HOSTS = os.environ.get('ALLOWED_HOST', default='*')
+ALLOWED_HOSTS = HOSTS.split()
 
 AUTH_USER_MODEL = 'api_v1.CustomUser'
 CSRF_COOKIE_SECURE = True
