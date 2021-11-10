@@ -69,7 +69,6 @@ jobs:
             sudo docker pull aivanstiv070593/yamdb_final:v1
             sudo docker-compose stop
             sudo docker-compose rm web
-            # Создаст файл для переменных окружения
             touch .env 
             # Наполнит файл переменными окружения из секретов GitHub
             echo SECRET_KEY=${{ secrets. SECRET_KEY }} >> .env
