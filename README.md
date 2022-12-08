@@ -12,10 +12,4 @@ yamdb_final - API для проекта YamDB.
     docker-compose exec web python manage.py createsuperuser # Создаем Админа  
     docker-compose exec web python manage.py collectstatic # Собираем статику
 
-Проверить работу:
-http://51.250.23.14/admin/
-http://51.250.23.14/api/v1/
-http://51.250.23.14/redoc/
-
-
 ![yamdb_workflow workflow](https://github.com/AIvantsiv070593/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
